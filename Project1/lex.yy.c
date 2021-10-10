@@ -1042,7 +1042,7 @@ case 41:
 /* rule 41 can match eol */
 YY_RULE_SETUP
 #line 56 "mini_l.lex"
-{ printf("Comment\n"); }
+{ }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP

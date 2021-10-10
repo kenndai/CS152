@@ -53,7 +53,7 @@ return      { printf("RETURN\n"); columnNum += yyleng; }
 
 {IDENT}   	{ printf("IDENT %s\n", yytext); columnNum += yyleng; }
 {NUMBER}    { printf("NUMBER %d\n", atoi(yytext)); columnNum += yyleng; }
-{COMMENT}   { printf("Comment\n"); }
+{COMMENT}   { }
 {UNDEREND}  { printf("Error at line %d, column %d: identifier \"%s\" cannot end with an underscore\n", rowNum, columnNum, yytext); exit(1); }
 {ERRBEGIN}  { printf("Error at line %d, column %d: identifier \"%s\" must begin with a letter\n", rowNum, columnNum, yytext); exit(1); }
 
