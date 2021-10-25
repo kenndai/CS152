@@ -1,0 +1,334 @@
+Parse.
+Declaration-Loop -> epsilon
+Ident-Loop -> IDENT
+Declaration -> Ident-Loop COLON INTEGER
+Ident-Loop -> IDENT
+Ident-Loop -> IDENT COMMA Ident-Loop
+Ident-Loop -> IDENT COMMA Ident-Loop
+Declaration -> Ident-Loop COLON INTEGER
+Ident-Loop -> IDENT
+Declaration -> Ident-Loop COLON ARRAY L_SQUARE_BRACKET NUMBER R_SQUARE_BRACKET OF INTEGER
+Declaration-Loop -> epsilon
+Declaration-Loop -> Declaration SEMICOLON Declaration-Loop
+Declaration-Loop -> Declaration SEMICOLON Declaration-Loop
+Declaration-Loop -> Declaration SEMICOLON Declaration-Loop
+Var -> IDENT
+Var -> IDENT
+Var-Loop -> Var
+Var-Loop -> Var COMMA Var-Loop
+Statement -> READ Var-Loop
+Var -> IDENT
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Statement -> Var ASSIGN Expression
+Var -> IDENT
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Statement -> Var ASSIGN Expression
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Var -> IDENT L_SQUARE_BRACKET Expression R_SQUARE_BRACKET
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Statement -> Var ASSIGN Expression
+Var -> IDENT
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Expression -> Multiplicative-Expr ADD Expression
+Statement -> Var ASSIGN Expression
+Var -> IDENT
+Term -> Var
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Multiplicative-Expr -> Term MOD Multiplicative-Expr
+Expression -> Multiplicative-Expr
+Comp -> EQ
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Relation-Expr -> Expression Comp Expression
+Relation-And-Expr -> Relation-Expr
+Bool-Expr -> Relation-And-Expr
+Statement -> CONTINUE
+Statement-Loop -> Statement SEMICOLON
+Statement -> IF Bool-Expr THEN Statement-Loop ENDIF
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Expression -> Multiplicative-Expr SUB Expression
+Var -> IDENT L_SQUARE_BRACKET Expression R_SQUARE_BRACKET
+Var-Loop -> Var
+Statement -> WRITE Var-Loop
+Statement-Loop -> Statement SEMICOLON
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Comp -> LT
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Relation-Expr -> Expression Comp Expression
+Relation-And-Expr -> Relation-Expr
+Bool-Expr -> Relation-And-Expr
+Statement -> DO BEGINLOOP Statement-Loop ENDLOOP WHILE Bool-Expr
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Comp -> LT
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Relation-Expr -> Expression Comp Expression
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Comp -> LT
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Relation-Expr -> Expression Comp Expression
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Comp -> GTE
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Relation-Expr -> Expression Comp Expression
+Relation-And-Expr -> Relation-Expr
+Relation-And-Expr -> Relation-Expr AND Relation-And-Expr
+Relation-And-Expr -> Relation-Expr AND Relation-And-Expr
+Bool-Expr -> Relation-And-Expr
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Var -> IDENT L_SQUARE_BRACKET Expression R_SQUARE_BRACKET
+Var -> IDENT
+Term -> Var
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Multiplicative-Expr -> Term MULT Multiplicative-Expr
+Expression -> Multiplicative-Expr
+Statement -> Var ASSIGN Expression
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Var -> IDENT L_SQUARE_BRACKET Expression R_SQUARE_BRACKET
+Var -> IDENT
+Term -> Var
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Multiplicative-Expr -> Term MULT Multiplicative-Expr
+Expression -> Multiplicative-Expr
+Statement -> Var ASSIGN Expression
+Var -> IDENT
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Var -> IDENT L_SQUARE_BRACKET Expression R_SQUARE_BRACKET
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Statement -> Var ASSIGN Expression
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Var -> IDENT L_SQUARE_BRACKET Expression R_SQUARE_BRACKET
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Var -> IDENT L_SQUARE_BRACKET Expression R_SQUARE_BRACKET
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Statement -> Var ASSIGN Expression
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Var -> IDENT L_SQUARE_BRACKET Expression R_SQUARE_BRACKET
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Statement -> Var ASSIGN Expression
+Statement-Loop -> Statement SEMICOLON
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Comp -> GTE
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Relation-Expr -> Expression Comp Expression
+Relation-And-Expr -> Relation-Expr
+Relation-Expr -> FALSE
+Relation-And-Expr -> Relation-Expr
+Bool-Expr -> Relation-And-Expr
+Bool-Expr -> Relation-And-Expr OR Bool-Expr
+Var -> IDENT
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Expression -> Multiplicative-Expr SUB Expression
+Expression -> Multiplicative-Expr ADD Expression
+Term -> L_PAREN Expression R_PAREN
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Multiplicative-Expr -> Term MOD Multiplicative-Expr
+Expression -> Multiplicative-Expr
+Statement -> Var ASSIGN Expression
+Var -> IDENT
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Expression -> Multiplicative-Expr SUB Expression
+Statement -> Var ASSIGN Expression
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Comp -> GT
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Relation-Expr -> Expression Comp Expression
+Relation-And-Expr -> Relation-Expr
+Bool-Expr -> Relation-And-Expr
+Statement -> CONTINUE
+Statement-Loop -> Statement SEMICOLON
+Statement -> IF Bool-Expr THEN Statement-Loop ENDIF
+Var -> IDENT
+Var-Loop -> Var
+Statement -> WRITE Var-Loop
+Statement-Loop -> Statement SEMICOLON
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement -> WHILE Bool-Expr BEGINLOOP Statement-Loop ENDLOOP
+Statement-Loop -> Statement SEMICOLON
+Statement -> IF Bool-Expr THEN Statement-Loop ELSE Statement-Loop ENDIF
+Var -> IDENT
+Var -> IDENT
+Var -> IDENT
+Var-Loop -> Var
+Var-Loop -> Var COMMA Var-Loop
+Var-Loop -> Var COMMA Var-Loop
+Statement -> WRITE Var-Loop
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Comp -> LT
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Relation-Expr -> Expression Comp Expression
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Comp -> GTE
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Relation-Expr -> Expression Comp Expression
+Relation-And-Expr -> Relation-Expr
+Relation-And-Expr -> Relation-Expr AND Relation-And-Expr
+Bool-Expr -> Relation-And-Expr
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Var -> IDENT L_SQUARE_BRACKET Expression R_SQUARE_BRACKET
+Var-Loop -> Var
+Statement -> WRITE Var-Loop
+Statement-Loop -> Statement SEMICOLON
+Statement -> IF Bool-Expr THEN Statement-Loop ENDIF
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Comp -> LT
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Relation-Expr -> Expression Comp Expression
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Comp -> GTE
+Term -> NUMBER
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Relation-Expr -> Expression Comp Expression
+Relation-And-Expr -> Relation-Expr
+Relation-And-Expr -> Relation-Expr AND Relation-And-Expr
+Bool-Expr -> Relation-And-Expr
+Var -> IDENT
+Term -> Var
+Multiplicative-Expr -> Term
+Expression -> Multiplicative-Expr
+Var -> IDENT L_SQUARE_BRACKET Expression R_SQUARE_BRACKET
+Var-Loop -> Var
+Statement -> WRITE Var-Loop
+Statement-Loop -> Statement SEMICOLON
+Statement -> IF Bool-Expr THEN Statement-Loop ENDIF
+Statement-Loop -> Statement SEMICOLON
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Statement-Loop -> Statement SEMICOLON Statement-Loop
+Function -> FUNCTION IDENT SEMICOLON BEGIN_PARAMS Declaration-Loop END_PARAMS BEGIN_LOCALS Declaration-Loop END_LOCALS BEGIN_BODY Statement-Loop END_BODY
+Function-Loop -> epsilon
+Function-Loop -> Function Function-Loop
+Program -> Function-Loop
